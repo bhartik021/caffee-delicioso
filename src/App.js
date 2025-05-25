@@ -1,23 +1,34 @@
-import logo from './logo.svg';
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Menu from './components/Menu';
+import About from './components/About';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import Testimonials from './components/Testimonials';
+import BackToTop from './components/BackToTop';
+import ExclusiveOffer from './components/ExclusiveOffer';
+import PopularNow from './components/PopularNow';
+import './styles/ExclusiveOffer.css';
+import './styles/PopularNow.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <main>
+        <Hero />
+        <PopularNow />
+        <Menu />
+        <ExclusiveOffer />
+        <About />
+        <Testimonials />
+        <Contact />
+      </main>
+      <Footer />
+      <BackToTop />
     </div>
   );
 }
