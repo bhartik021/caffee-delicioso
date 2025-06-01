@@ -1,4 +1,5 @@
 import React from 'react';
+import cafeImage from '../assets/caffee_delicioso.webp';
 
 function Hero() {
   return (
@@ -7,7 +8,7 @@ function Hero() {
       <div className="hero-particles"></div>
       <div className="container position-relative">
         <div className="row align-items-center min-vh-90">
-          <div className="col-lg-6 hero-content" data-aos="fade-right">
+          <div className="col-lg-6 hero-content text-start" data-aos="fade-right">
             <div className="badge-container mb-4">
               <span className="hero-badge">
                 <i className="fas fa-star-half-alt"></i>
@@ -19,11 +20,12 @@ function Hero() {
               </span>
             </div>
             <h1 className="hero-title">
-              Experience the Art of
-              <span className="hero-highlight">Perfect Coffee</span>
+              <span className="text-white">Experience the Art of</span>
+              <span className="text-gold">Perfect Coffee</span>
             </h1>
             <p className="hero-description">
               Where every cup tells a story and every visit becomes a memory.
+              <br />
               Join us in our cozy corner of coffee paradise.
             </p>
             <div className="hero-cta">
@@ -52,21 +54,17 @@ function Hero() {
             </div>
           </div>
           <div className="col-lg-6 hero-visual" data-aos="fade-left">
-            <div className="coffee-cup">
-              <div className="coffee-icon">
-                <i className="fas fa-mug-hot"></i>
+            <div className="hero-image-container">
+              <img 
+                src={cafeImage}
+                alt="Caffee Delicioso" 
+                className="main-image"
+              />
+              <div className="image-overlay"></div>
+              <div className="floating-badge">
+                <i className="fas fa-arrow-right"></i>
+                <span>Visit Now</span>
               </div>
-              <div className="coffee-liquid"></div>
-              <div className="steam">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-            </div>
-            <div className="floating-elements">
-              <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3" alt="Coffee" className="float-1" />
-              <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?ixlib=rb-4.0.3" alt="Latte" className="float-2" />
-              <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?ixlib=rb-4.0.3" alt="Cappuccino" className="float-3" />
             </div>
           </div>
         </div>
