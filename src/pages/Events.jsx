@@ -9,7 +9,7 @@ import { phoneProps, sendToWhatsApp, whatsappLink } from '../lib/whatsapp'
 import { events, performers, nextOccurrence, relativeDay } from '../data/events'
 import { outlets } from '../data/info'
 import { img } from '../data/images'
-import useTitle from '../lib/useTitle'
+import useSeo from '../lib/useSeo'
 import Equalizer from '../components/Equalizer'
 
 const fmt = (d, opts) => d.toLocaleDateString('en-IN', opts)
@@ -17,7 +17,7 @@ const hasEvents = events.length > 0
 const notifyLink = whatsappLink('Hi Caffee Delicioso! Please let me know when your next live music night is scheduled.')
 
 export default function Events() {
-  useTitle('Live Music Nights')
+  useSeo('/events')
   const lineup = useMemo(() => {
     const now = new Date()
     return events

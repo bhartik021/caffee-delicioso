@@ -5,7 +5,7 @@ export const events = []
 
 // weekday: 0 = Sunday … 6 = Saturday. `monthly: 'last'` means the last such weekday of each month.
 import { Guitar, MicVocal, Piano, Users } from 'lucide-react'
-import { img } from './images'
+import { img } from './images.js'
 
 export const exampleEvents = [
   {

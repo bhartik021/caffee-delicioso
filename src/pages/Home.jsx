@@ -5,10 +5,10 @@ import Menu from '../components/Menu'
 import Gallery from '../components/Gallery'
 import CtaBand from '../components/CtaBand'
 import Visit from '../components/Visit'
-import useTitle from '../lib/useTitle'
+import useSeo from '../lib/useSeo'
 
 export default function Home() {
-  useTitle()
+  useSeo('/')
   return (
     <>
       <Hero />

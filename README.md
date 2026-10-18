@@ -73,14 +73,39 @@ src/
 └── pages/         Home, Events, Careers
 ```
 
+## SEO
+
+`npm run build` runs `vite build` and then `scripts/seo-build.mjs`. The second step writes a separate static HTML file for each page:
+
+- **Per-page metadata:** title, meta description, canonical link, Open Graph and Twitter tags. Each page shares with the image `public/og-image.jpg` (1200×630).
+- **JSON-LD structured data** (schema.org):
+  - **Home:** `WebSite`, `Organization`, one `CafeOrCoffeeShop` per outlet (address, map coordinates, phone, opening hours 08:45–02:00, price range) and the full `Menu` with prices in INR.
+  - **Events:** a `MusicEvent` for each scheduled night, plus breadcrumbs.
+  - **Careers:** a `JobPosting` for each open role, plus breadcrumbs.
+
+  Event and job markup only appears when `events` and `roles` have entries.
+- **`sitemap.xml` and `robots.txt`.**
+- **`404.html`:** marked `noindex`, so unknown URLs return a real 404 status.
+
+Page titles and descriptions are defined in `src/seo.js`. The same values also update in the browser as visitors move between pages.
+
+**Before going live, set the site's domain.** Canonical links, the sitemap and absolute share-image URLs need it. Either edit `SITE_URL` in `src/seo.js`, or build with:
+
+```bash
+VITE_SITE_URL=https://your-domain.com npm run build
+```
+
+After deploying:
+
+1. Submit `https://your-domain.com/sitemap.xml` in [Google Search Console](https://search.google.com/search-console).
+2. Check the structured data with Google's [Rich Results Test](https://search.google.com/test/rich-results).
+3. Create or claim a **Google Business Profile** for each outlet, using the same name, address and phone number as the site.
+
 ## Deployment
 
-The site is a static single-page app. Build it with `npm run build` and deploy the `dist/` folder.
+The site is static. Build it with `npm run build` and deploy the `dist/` folder.
 
-Rewrite rules are included so that `/events` and `/careers` work when opened directly:
-
-- **Netlify:** `public/_redirects`
-- **Vercel:** `vercel.json`
+Each page is its own HTML file (`/`, `/events/`, `/careers/`), so no rewrite rules are needed. Unknown URLs fall through to `404.html`. `vercel.json` turns on clean URLs (no trailing slash) for Vercel; Netlify serves this structure as-is.
 
 ## Credits
 

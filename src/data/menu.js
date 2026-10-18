@@ -1,5 +1,5 @@
 import { Citrus, Coffee, CupSoda, Dessert, Flame, Leaf, Milk, Snowflake } from 'lucide-react'
-import { img } from './images'
+import { img } from './images.js'
 
 // Short drink descriptions are written for the website — edit freely to match the café's recipes.
 export const menu = [

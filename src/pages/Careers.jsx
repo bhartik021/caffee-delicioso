@@ -9,12 +9,12 @@ import { phoneProps, sendToWhatsApp, whatsappLink } from '../lib/whatsapp'
 import { roles, interestAreas, perks, featuredPerk, steps } from '../data/careers'
 import { outlets } from '../data/info'
 import { img } from '../data/images'
-import useTitle from '../lib/useTitle'
+import useSeo from '../lib/useSeo'
 
 const hiring = roles.length > 0
 
 export default function Careers() {
-  useTitle('Careers')
+  useSeo('/careers')
   const [role, setRole] = useState(hiring ? roles[0].title : interestAreas[0])
 
   const apply = (title) => {

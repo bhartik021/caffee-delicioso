@@ -56,6 +56,7 @@ export default function Hero() {
             <img
               src={img.latteArtPour(900)}
               alt="Barista pouring latte art"
+              fetchPriority="high"
               className="h-full w-full rounded-t-full object-cover shadow-2xl shadow-brand-900/50"
             />
           </div>
