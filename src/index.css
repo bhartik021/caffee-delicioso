@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  html, body { overflow-x: clip; }
+  body { @apply bg-cream font-sans text-brand-900 antialiased; }
+  ::selection { @apply bg-brand-200 text-brand-900; }
+  html { scrollbar-color: #3F8F7A #FAF7F0; }
+  h1, h2, h3 { font-optical-sizing: auto; }
+  /* Fraunces' SOFT axis rounds off the serifs for a warmer, friendlier feel */
+  .font-display { font-variation-settings: 'SOFT' 100, 'WONK' 0; }
+  .font-display em, em.font-display, .font-display .italic { font-variation-settings: 'SOFT' 100, 'WONK' 1; }
+}
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8; }
+  .eyebrow { @apply font-script text-2xl text-brand-500 sm:text-3xl; }
+  .section-title { @apply font-display text-4xl font-semibold tracking-tight text-brand-800 sm:text-5xl; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold tracking-wide transition duration-300; }
+  .btn-primary { @apply btn bg-brand-700 text-white shadow-lg shadow-brand-700/25 hover:-translate-y-0.5 hover:bg-brand-600; }
+  .btn-light { @apply btn bg-white text-brand-800 shadow-lg shadow-brand-900/20 hover:-translate-y-0.5 hover:bg-brand-50; }
+  .btn-outline { @apply btn border border-white/60 text-white hover:bg-white hover:text-brand-800; }
+  .input { @apply w-full rounded-xl border border-brand-100 bg-white px-4 py-3 text-sm text-brand-900 outline-none transition placeholder:text-brand-900/35 focus:border-brand-400 focus:ring-4 focus:ring-brand-400/15; }
+  .label { @apply mb-1.5 block text-xs font-semibold uppercase tracking-wider text-brand-700/80; }
+
+  /* Scroll-reveal; kept in the components layer so hover utilities (e.g. lift on hover) still apply */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.is-visible { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .animate-marquee, .animate-float { animation: none; }
+}
+
+/* Faint coffee-bean pattern for green sections (white beans at low opacity) */
+.bg-beans {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cdefs%3E%3Cmask id='m'%3E%3Crect width='140' height='140' fill='white'/%3E%3Cpath transform='translate%2818 14%29 rotate%28-30 12 16%29' d='M12.6 3.2c-3.4 4.4-3.4 8 0 12.8s3.4 8.4 0 12.8' fill='none' stroke='black' stroke-width='2.3' stroke-linecap='round'/%3E%3Cpath transform='translate%2888 70%29 rotate%2835 12 16%29' d='M12.6 3.2c-3.4 4.4-3.4 8 0 12.8s3.4 8.4 0 12.8' fill='none' stroke='black' stroke-width='2.3' stroke-linecap='round'/%3E%3Cpath transform='translate%2830 98%29 rotate%2815 12 16%29' d='M12.6 3.2c-3.4 4.4-3.4 8 0 12.8s3.4 8.4 0 12.8' fill='none' stroke='black' stroke-width='2.3' stroke-linecap='round'/%3E%3Cpath transform='translate%28104 8%29 rotate%28-55 12 16%29' d='M12.6 3.2c-3.4 4.4-3.4 8 0 12.8s3.4 8.4 0 12.8' fill='none' stroke='black' stroke-width='2.3' stroke-linecap='round'/%3E%3C/mask%3E%3C/defs%3E%3Cg fill='white' fill-opacity='0.045' mask='url%28%23m%29'%3E%3Cellipse transform='translate%2818 14%29 rotate%28-30 12 16%29' cx='12' cy='16' rx='10.5' ry='14.5'/%3E%3Cellipse transform='translate%2888 70%29 rotate%2835 12 16%29' cx='12' cy='16' rx='10.5' ry='14.5'/%3E%3Cellipse transform='translate%2830 98%29 rotate%2815 12 16%29' cx='12' cy='16' rx='10.5' ry='14.5'/%3E%3Cellipse transform='translate%28104 8%29 rotate%28-55 12 16%29' cx='12' cy='16' rx='10.5' ry='14.5'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Subtle paper grain over the whole site */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-spin-slow, .animate-eq, .animate-fade-up { animation: none; }
+}
